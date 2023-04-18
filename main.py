@@ -36,7 +36,7 @@ async def hello(ctx):
 
 @bot.command()
 async def pingd(ctx):
-    await ctx.send(bot.latency)
+    await ctx.send(bot.latency*1000)
 
 
 # Admin commands
