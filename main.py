@@ -6,25 +6,25 @@ intents.message_content=True
 bot=commands.Bot(command_prefix='/',intents=intents)
 
 
-#sucess log message-terminal
+#success log message
 @bot.event
 async def on_ready():
     print("Logged on as", bot.user)
 
-# messages replys
+# messages replies
 @bot.event
 async def on_message(message):
     if message.author==bot.user:
         return
     
     if message.content.lower()=="slm":
-        await message.channel.send("Wa alykum salam")
+        await message.channel.send("sup")
 
-    if "zahya" in message.content.lower():
+    if "dance" in message.content.lower():
         await message.channel.send('https://tenor.com/bUrwp.gif')
 
-    if "cv" in message.content.lower():
-        await message.channel.send('bekher hmdlh')
+    if "peace" in message.content.lower():
+        await message.channel.send('https://tenor.com/bjRCF.gif')
         
     await bot.process_commands(message)
 
@@ -40,23 +40,25 @@ async def pingd(ctx):
 
 
 # Admin commands
+
+#clear cmd
 @bot.command()
 @commands.has_permissions(administrator=True)
-async def mse7(ctx , amount:int=None):
+async def clear(ctx , amount:int=None):
     if(not amount):
         await ctx.send("3emer l'amount libaghi tmse7 ")
         return
     elif(amount>10):
-        await ctx.send("Max houwa 10 characters ")
+        await ctx.send("Max 10 characters ")
         return
-    # amount +1 to delete the /cmd itself  ex: /clear 5 => 5msgs+1cmd     
+    # +1 delete the cmd itself     
     await ctx.channel.purge(limit=amount+1)     
 
 
 
 
 
-bot.run('MTA1ODM5MzE1MTY4MjkwODE2MA.GOUA2E.O7DOE-TuY0KBtNgRyX8mK7V3fJf3BtSfVDWJlk')
+bot.run('Put your token here')
 
 
 
